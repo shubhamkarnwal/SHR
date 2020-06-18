@@ -1,2 +1,2 @@
 # SHR
-Hard Rock 
+seminole hard rock
