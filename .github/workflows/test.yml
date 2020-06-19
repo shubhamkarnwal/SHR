@@ -14,10 +14,8 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
       run: echo "$GITHUB_CONTEXT"
-    - name: Fail if no match found
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}                         
-      if: contains(${{ toJson(github.event.pull_request.requested_reviewers) }}.*.login, 'shubhamkarnwal1232121')
+      if: contains(${{ toJson(github.event.pull_request.requested_reviewers) }}.*.login, 'shubhamkarnwal12331313')
+    - name: Execute if reviewer found                              
       run: echo "Reviewer Found"
 
      
