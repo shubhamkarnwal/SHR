@@ -17,7 +17,7 @@ jobs:
     - name: Fails if reviewer not found     
       env:
        reviewers_array: ${{ toJson(github.event.pull_request.requested_reviewers) }}
-      if: contains(env.reviewers_array.*.login, 'shubhamkarnwal123')                      
+      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found"
 
      
