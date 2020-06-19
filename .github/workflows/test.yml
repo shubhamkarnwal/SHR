@@ -15,11 +15,13 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found     
-      env:
-       reviewers_array: ${{ toJson(github.event.pull_request.requested_reviewers) }}
       if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal1231212')                      
       run: echo "Reviewer Found"
-
+    
+    - name: validating the PR branch name (feature/release/hotfix)
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}              
+      run: echo "$GITHUB_CONTEXT"
      
  
  
