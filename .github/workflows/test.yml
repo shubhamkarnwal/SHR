@@ -15,7 +15,7 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found        
-      if: contains(env.GITHUB_CONTEXT.*.login, 'shubhamkarnwal12331313')                      
+      if: contains(env.GITHUB_CONTEXT.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found"
 
      
