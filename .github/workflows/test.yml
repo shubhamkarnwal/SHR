@@ -1,16 +1,21 @@
 name: Service Test Pipeline
-
- 
-
 on:
-  push:    
+ pull_request:
+ push:
+  
 jobs:
   test:
     runs-on: ubuntu-latest
+    
     steps:
     - name: Checkout Source Code
       uses: actions/checkout@v1
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+        ReviewerCount: $response | ConvertTo-Json | jq '.[] | select(.state=="APPROVED") | length'  
+      run: echo "length = $(echo $requested_reviewers | jq '. | length')"
+
+     
+ 
+ 
