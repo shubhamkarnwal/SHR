@@ -15,7 +15,7 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found     
-      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal1231212')                      
+      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found"
     
     - name: validating the PR branch name (feature/release/hotfix)
