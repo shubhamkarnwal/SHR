@@ -4,7 +4,7 @@ on:
 
 jobs:
   test:
-    runs-on: github-runner-shr
+    runs-on: self-hosted
     
     steps:
     - name: Checkout Source Code
