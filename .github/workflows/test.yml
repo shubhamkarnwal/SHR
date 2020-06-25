@@ -18,7 +18,6 @@ jobs:
       if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found"
     
-    - name: validating the PR branch name (feature/release/hotfix)
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}              
-      run: echo "$GITHUB_CONTEXT"
+    - name: validating the PR branch name (feature/release/hotfix)     
+      if: startWith(github.head_ref,'feature') || startWith(github.head_ref,'release') || startWith(github.head_ref,'hotfix')         
+      run: echo "Branch is $github.head_ref"
