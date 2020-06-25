@@ -19,5 +19,5 @@ jobs:
       run: echo "Reviewer Found"
     
     - name: validating the PR branch name (feature/release/hotfix)     
-      if: startWith(github.head_ref,'feature') || startWith(github.head_ref,'release') || startWith(github.head_ref,'hotfix')         
+      if: startWith(github.head_ref,'feature')
       run: echo "Branch is $github.head_ref"
