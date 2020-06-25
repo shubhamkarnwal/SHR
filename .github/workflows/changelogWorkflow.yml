@@ -21,7 +21,7 @@ jobs:
         with:
           token: ${{ secrets.YOUR_GITHUB_TOKEN }}
 
-      - name: Commit files
+      - name: Commit files for changelog file
         env:
           CI_USER: ${{ secrets.YOUR_GITHUB_USER }}
           CI_EMAIL: ${{ secrets.YOUR_GITHUB_EMAIL }}
