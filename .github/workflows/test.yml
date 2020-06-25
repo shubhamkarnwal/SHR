@@ -12,7 +12,7 @@ jobs:
 
     - name: Validating the PR branch name (feature/release/hotfix)     
       if: (startsWith(github.head_ref, 'feature') || startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'test')) != true
-      run: exit 1
+      run: echo "Hello world"
       
     - name: List of Requested Revierwers
       env:
