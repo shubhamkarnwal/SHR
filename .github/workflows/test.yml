@@ -9,17 +9,16 @@ jobs:
     steps:
     - name: Checkout Source Code
       uses: actions/checkout@v1
+
+    - name: Validating the PR branch name (feature/release/hotfix)     
+      if: startsWith(github.head_ref, 'test')
+      run: failure()
+      
     - name: List of Requested Revierwers
       env:
         GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found     
-      env:
-       reviewers_array: ${{ toJson(github.event.pull_request.requested_reviewers) }}
-      if: contains(env.reviewers_array.*.login, 'shubhamkarnwal123')                      
-      run: echo "Reviewer Found"
-
-     
- 
- 
+      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
+      run: echo "Reviewer Found"   
