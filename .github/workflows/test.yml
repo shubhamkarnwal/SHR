@@ -4,11 +4,21 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     
     steps:
-    - name: Echo Some string
-      run: echo "Hello World"
-     
- 
- 
+    - name: Checkout Source Code
+      uses: actions/checkout@v1
+    - name: List of Requested Revierwers
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
+      run: echo "$GITHUB_CONTEXT"
+      
+    - name: Fails if reviewer not found     
+      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
+      run: echo "Reviewer Found"
+    
+    - name: validating the PR branch name (feature/release/hotfix)
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}              
+      run: echo "$GITHUB_CONTEXT"
