@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- update workflow [\#18](https://github.com/shubhamkarnwal/SHR/pull/18) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - updateWorkflow [\#17](https://github.com/shubhamkarnwal/SHR/pull/17) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - test [\#16](https://github.com/shubhamkarnwal/SHR/pull/16) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - test [\#15](https://github.com/shubhamkarnwal/SHR/pull/15) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
