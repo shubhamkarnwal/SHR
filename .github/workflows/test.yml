@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Validate the branch Name
       if: "startsWith(github.head_ref, 'feature') != true || startsWith(github.head_ref, 'release') != true"
-      run: failure()
+      run: echo startsWith(github.head_ref, 'feature') != true
       
     - name: Checkout Source Code
       uses: actions/checkout@v1       
