@@ -20,9 +20,9 @@ jobs:
           URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
           FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
           if echo $FILES | grep -q "CHANGELOG.md"; then
-            echo "CHANGELOG.md file updated!!"
+            echo "Found"
           else
-            echo "CHANGELOG.md not updated!!"
+            failure()
           fi
                  
     - name: List of Requested Revierwers
