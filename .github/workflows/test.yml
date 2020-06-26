@@ -19,7 +19,11 @@ jobs:
       run: |
           URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
           FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
-          echo $FILES
+          if echo $FILES | grep -q ".yml"; then
+            echo "json file changed!!"
+          else
+            echo "no json file changed!!"
+          fi
                  
     - name: List of Requested Revierwers
       env:
