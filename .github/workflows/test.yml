@@ -22,7 +22,7 @@ jobs:
           if echo $FILES | grep -q "CHANGELOG.md"; then
             echo "Found"
           else
-            failure()
+            exit 1
           fi
                  
     - name: List of Requested Revierwers
