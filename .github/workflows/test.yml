@@ -6,8 +6,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     
-    if: startsWith(github.head_ref, 'afeature') || startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'hotfix')
+    
     steps:
+    - name: Validate the branch Name
+      if: "startsWith(github.head_ref, 'feature') != false"
+      run: failure()
+      
     - name: Checkout Source Code
       uses: actions/checkout@v1       
         
@@ -19,5 +23,6 @@ jobs:
     - name: Fails if reviewer not found     
       if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found" 
-      
+    
+    
 
