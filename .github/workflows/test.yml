@@ -9,10 +9,6 @@ jobs:
     steps:
     - name: Checkout Source Code
       uses: actions/checkout@v1
-
-    - name: Validating the PR branch name (feature/release/hotfix)     
-      if: startsWith(github.head_ref, 'test')
-      run: failure()
       
     - name: List of Requested Revierwers
       env:
