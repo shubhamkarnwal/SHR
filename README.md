@@ -1,3 +1,2 @@
-# SHR
-seminole hard rock
+# Seminole Hard Rock 
 Public Testing Repository
