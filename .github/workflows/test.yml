@@ -13,8 +13,19 @@ jobs:
     
     steps:     
     - name: Checkout Source Code
-      uses: actions/checkout@v1       
-        
+      uses: actions/checkout@v1  
+
+    - name: Validate ChangeLog File
+      if: github.event.pull_request.merged
+      run: |
+           URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"
+           FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
+           if echo $FILES | grep -q "Changelog.md"; then
+             echo "Changelog file changed!!"
+           else
+             echo "Changelog file not changed!!"
+           fi  
+                 
     - name: List of Requested Revierwers
       env:
         GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
