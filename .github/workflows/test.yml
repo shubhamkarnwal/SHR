@@ -1,17 +1,16 @@
 name: Service Test Pipeline
 on:
  pull_request:
-
+    - master
+    - 'feature/**'
+    - 'release/**'      
+    - 'hotfix/**'      
 jobs:
   test:
     runs-on: ubuntu-latest
     
     
-    steps:
-    - name: Validate the branch Name
-      if: "startsWith(github.head_ref, 'feature') != true || startsWith(github.head_ref, 'release') != true"
-      run: echo "$startsWith(github.head_ref, 'feature') != true"
-      
+    steps:     
     - name: Checkout Source Code
       uses: actions/checkout@v1       
         
