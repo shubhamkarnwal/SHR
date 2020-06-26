@@ -1,4 +1,2 @@
-# SHR
-seminole hard rock
-Check for the reviewer
-test123
+# Seminole Hard Rock 
+Public Testing Repository
