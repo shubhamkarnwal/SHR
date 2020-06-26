@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- test [\#16](https://github.com/shubhamkarnwal/SHR/pull/16) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - test [\#15](https://github.com/shubhamkarnwal/SHR/pull/15) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - Test [\#14](https://github.com/shubhamkarnwal/SHR/pull/14) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
 - test [\#13](https://github.com/shubhamkarnwal/SHR/pull/13) ([shubhamkarnwal](https://github.com/shubhamkarnwal))
