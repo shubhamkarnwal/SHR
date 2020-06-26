@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v1  
 
     - name: Validating the PR branch name (feature/release/hotfix)     
-      if: "startsWith(github.head_ref, 'feature/') != true && !startsWith(github.head_ref, 'release/') != true && !startsWith(github.head_ref, 'hotfix/') != true"  
+      if: "startsWith(github.head_ref, 'feature/') != true && startsWith(github.head_ref, 'release/') != true && startsWith(github.head_ref, 'hotfix/') != true"  
       run: failure()  
       
     - name: Validate ChangeLog File
