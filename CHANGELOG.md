@@ -1,7 +1,7 @@
 # Changelog
 
 ## [Unreleased](https://github.com/shubhamkarnwal/SHR/tree/HEAD)
-
+## Releases
 [Full Changelog](https://github.com/shubhamkarnwal/SHR/compare/69f35bdcfbed89529d55518a309459d16e66ae03...HEAD)
 
 **Merged pull requests:**
