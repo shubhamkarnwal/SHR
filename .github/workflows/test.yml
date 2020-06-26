@@ -6,13 +6,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     
+    if: startsWith(github.head_ref, 'feature') || startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'hotfix')
     steps:
     - name: Checkout Source Code
-      uses: actions/checkout@v1
-      
-    - name: Validating the PR branch name (feature/release/hotfix)     
-      if: "!startsWith(github.head_ref, 'feature') || !startsWith(github.head_ref, 'release') || !startsWith(github.head_ref, 'hotfix')"  
-      run: failure()  
+      uses: actions/checkout@v1       
         
     - name: List of Requested Revierwers
       env:
