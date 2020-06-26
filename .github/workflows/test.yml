@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: Validate the branch Name
-      if: "startsWith(github.head_ref, 'feature') != false"
+      if: "startsWith(github.head_ref, 'feature') != true"
       run: failure()
       
     - name: Checkout Source Code
