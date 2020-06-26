@@ -25,6 +25,7 @@ jobs:
           echo "__version__ = \"${VERSION}\"" > __version__.py
           echo "##[set-output name=version;]$(echo ${VERSION})"
       - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
         with:
           commit-message: Release ${{ steps.version.outputs.version }}
           labels: release, bot
