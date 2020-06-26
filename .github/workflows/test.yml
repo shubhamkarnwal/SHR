@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v1
       
     - name: Validating the PR branch name (feature/release/hotfix)     
-      if: "!startsWith(github.head_ref, 'features')"
+      if: "!startsWith(github.head_ref, 'feature') || !startsWith(github.head_ref, 'release') || !startsWith(github.head_ref, 'hotfix')"  
       run: failure()  
         
     - name: List of Requested Revierwers
