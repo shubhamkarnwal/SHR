@@ -23,7 +23,7 @@ jobs:
                  
     - name: List of Requested Revierwers
       env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
+        GITHUB_CONTEXT: ${{ toJson(github) }}              
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found     
