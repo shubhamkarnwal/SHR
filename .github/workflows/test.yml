@@ -1,26 +1,38 @@
 name: Service Test Pipeline
 on:
  pull_request:
-
+  branches: 
+    - master
+    - 'feature/**'
+    - 'release/**'      
+    - 'hotfix/**'      
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     
-    steps:
+    
+    steps:     
     - name: Checkout Source Code
-      uses: actions/checkout@v1
-      
-    - name: Validating the PR branch name (feature/release/hotfix)     
-      if: "!startsWith(github.head_ref, 'test')"
-      run: failure()  
-        
-    - name: List of Requested Revierwers
+      uses: actions/checkout@v1  
+
+    - name: Validate ChangeLog File
+      run: |
+          URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
+          FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
+          echo $FILES
+                 
+
+    - name: Github Context
+
       env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
+
+        GITHUB_CONTEXT: ${{ toJson(github) }}              
+
       run: echo "$GITHUB_CONTEXT"
       
     - name: Fails if reviewer not found     
       if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
       run: echo "Reviewer Found" 
-      
+    
+    
 
