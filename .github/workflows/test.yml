@@ -8,7 +8,7 @@ on:
     - 'hotfix/**'      
 jobs:
   test:
-    runs-on: [test-runner]
+    runs-on: [test-runner, linux, X64]
     
     
     steps:     
