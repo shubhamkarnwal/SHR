@@ -10,7 +10,7 @@ jobs:
     # Validating the PR branch name (feature/release/hotfix)
     - name: Validating the PR branch name (feature/release/hotfix)
         testbranch = startsWith(github.head_ref, 'test')
-      if: testbranch == false
+      if: startsWith(github.head_ref, 'test') == true
       run: exit 1 
       
 
