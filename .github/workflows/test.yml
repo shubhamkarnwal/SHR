@@ -1,4 +1,4 @@
-name: Service Test Pipeline
+name: Service Test Pipeline workflow
 on:
  push:
   branches: 
