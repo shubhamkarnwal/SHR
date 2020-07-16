@@ -12,7 +12,7 @@ jobs:
       run: echo ${{ toJson(github.head_ref) }}
     # Validating the PR branch name (feature/release/hotfix)
     - name: Validating the PR branch name (feature/release/hotfix)    
-      if: (!startsWith(github.head_ref, 'feature')) || (!startsWith(github.head_ref, 'test'))
+      if: (!startsWith(github.head_ref, 'test') )
       run: exit 1 
       
 
