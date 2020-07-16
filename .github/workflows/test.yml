@@ -8,7 +8,10 @@ jobs:
     
     steps:
     # Validating the PR branch name (feature/release/hotfix)
-    - name: Validating the PR branch name (feature/release/hotfix)
+    - name: branch name (feature/release/hotfix)          
+      run: echo ${{ toJson(github.head_ref) }}
+    # Validating the PR branch name (feature/release/hotfix)
+    - name: Validating the PR branch name (feature/release/hotfix)    
       if: startsWith(github.head_ref, 'test')
       run: exit 1 
       
