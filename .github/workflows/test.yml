@@ -7,20 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout Source Code
-      uses: actions/checkout@v1
-      
-    - name: Validating the PR branch name (feature/release/hotfix)     
-      if: "!startsWith(github.head_ref, 'test')"
-      run: failure()  
-        
-    - name: List of Requested Revierwers
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.requested_reviewers) }}              
-      run: echo "$GITHUB_CONTEXT"
-      
-    - name: Fails if reviewer not found     
-      if: contains(github.event.pull_request.requested_reviewers.*.login, 'shubhamkarnwal123')                      
-      run: echo "Reviewer Found" 
+    # Validating the PR branch name (feature/release/hotfix)
+    - name: branch name (feature/release/hotfix)          
+      run: echo ${{ toJson(github.head_ref) }}
+    # Validating the PR branch name (feature/release/hotfix)
+    - name: Validating the PR branch name (feature/release/hotfix)    
+      if: (startsWith(github.head_ref, 'test') || startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'hotfix')) == false
+      run: exit 1 
       
 
