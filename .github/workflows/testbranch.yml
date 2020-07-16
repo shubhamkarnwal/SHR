@@ -1,0 +1,24 @@
+name:Test Pipeline
+on:
+ push:
+  branches: 
+    - master
+    - 'feature/**'
+    - 'release/**'      
+    - 'hotfix/**' 
+ pull_request:
+  branches: 
+    - master
+    - 'feature/**'
+    - 'release/**'      
+    - 'hotfix/**'      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    
+    steps:     
+    # Validating the PR branch name (feature/release/hotfix)
+    - name: Validating the PR branch name (feature/release/hotfix)     
+      if: "!startsWith(github.head_ref, 'feature/') || !startsWith(github.head_ref, 'release/') || !startsWith(github.head_ref, 'hotfix/')"  
+      run: exit 1 
