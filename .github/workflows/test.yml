@@ -1,5 +1,11 @@
 name: Service Test Pipeline
 on:
+ push:
+  branches: 
+    - master
+    - 'feature/**'
+    - 'release/**'      
+    - 'hotfix/**' 
  pull_request:
   branches: 
     - master
