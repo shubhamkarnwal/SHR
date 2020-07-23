@@ -1,0 +1,12 @@
+name: Service Build Pipeline
+on:
+ push:
+   branches:
+     - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v1     
